@@ -8,7 +8,7 @@ using Recrutement.Domain.Utilisateur.Models;
 
 namespace Recrutement.Domain.Utilisateur
 {
-    public class UtilisateurCommandHandler //: IRequestHandler<CreateUtilisateurCommand>
+    public class UtilisateurCommandHandler : IRequestHandler<CreateUtilisateurCommand>
     {
 
         private readonly IUtilisateurRepository _repository;

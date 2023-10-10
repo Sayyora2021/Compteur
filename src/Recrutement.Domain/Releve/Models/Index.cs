@@ -2,11 +2,11 @@ namespace Recrutement.Domain.Releve.Models;
 
 public class Index
 {
-    public Guid CompteurId { get; }         
+    public Guid CompteurId { get; set; }         
 
-    public decimal Value { get; }
+    public decimal Value { get; set; }
 
-    public DateTime Date {get; } 
+    public DateTime Date { get; set; } 
 
     public Index(
         Guid compteurId,

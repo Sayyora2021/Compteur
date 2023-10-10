@@ -45,5 +45,6 @@ public class ReleveRepository : IReleveRepository
             Type = "Index",
             Valeur = index.Value
         });
+        await _context.SaveChangesAsync();
     }
 }

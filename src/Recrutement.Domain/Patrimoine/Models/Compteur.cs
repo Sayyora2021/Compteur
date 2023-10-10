@@ -2,7 +2,7 @@ namespace Recrutement.Domain.Patrimoine.Models;
 
 public class Compteur
 {
-    public Guid Id { get; }   
+    public Guid Id { get; set; }   
 
     public string NumeroSerie { get; }     
     
