@@ -12,6 +12,7 @@ public class ReleveService : IReleveService
     public ReleveService(IReleveRepository releveRepository, IPatrimoineRepository patrimoineRepository)
     {
         _releveRepository = releveRepository;
+        _patrimoineRepository = patrimoineRepository;
     }
 
 

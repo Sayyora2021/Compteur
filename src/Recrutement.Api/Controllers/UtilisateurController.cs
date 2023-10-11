@@ -24,11 +24,6 @@ public class UtilisateurController : ControllerBase
     [HttpGet]
     [ProducesResponseType((int)HttpStatusCode.OK)]
     [Route("all")]
-    //public async Task<ActionResult<IEnumerable<Utilisateur>>> GetListeUtilisateur()
-    //{
-    //    var utilisateurs =  _utilisateurRepository.GetAll().ToList();
-    //    return Ok(utilisateurs);
-    //}
     public async Task<ActionResult<IEnumerable<Utilisateur>>> GetAllQuery()
     {
         var utilisateurs =await _mediator.Send(new GetAllQuery());
