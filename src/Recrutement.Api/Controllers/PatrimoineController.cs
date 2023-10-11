@@ -33,7 +33,16 @@ public class PatrimoineController : ControllerBase
     [Route("create")]
     public async Task<ActionResult<Guid>> CreateCompteur([FromBody] string numeroSerie)
     {
-        var id = await _mediator.Send(new CreateCompteurCommand(numeroSerie));
-        return id;
+         await _mediator.Send(new CreateCompteurCommand(numeroSerie));
+        return Ok(numeroSerie);
+    }
+
+    [HttpDelete]
+    [ProducesResponseType((int)HttpStatusCode.OK)]
+    [Route("delete")]
+    public async Task<ActionResult<Guid>> DeleteCompteur([FromBody] Guid compteurId)
+    {
+        await _mediator.Send(new DeleteCompteurCommand(compteurId));
+        return Ok(compteurId);
     }
 }

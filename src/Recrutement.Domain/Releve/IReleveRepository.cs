@@ -22,4 +22,6 @@ public interface IReleveRepository
     /// <param name="index"><see cref="Index"/></param>
     /// <returns></returns>
     Task AddIndexAsync(Index index);
+
+    Task DeleteIndexAsync(Guid compteurId);
 }

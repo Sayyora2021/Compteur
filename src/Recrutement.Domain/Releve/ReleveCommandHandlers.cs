@@ -18,4 +18,9 @@ public class ReleveCommandHandlers
     {
         await _releveRepository.AddIndexAsync(new Index(request.CompteurId, request.Valeur, DateTime.UtcNow));
     }
+
+    //public async Task Handle(DeleteIndexCommand request, CancellationToken cancellationToken)
+    //{
+    //    await _releveRepository.DeleteIndexAsync(request.CompteurId);
+    //}
 }

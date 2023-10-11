@@ -47,4 +47,17 @@ public class ReleveRepository : IReleveRepository
         });
         await _context.SaveChangesAsync();
     }
+
+    public async Task DeleteIndexAsync(Guid compteurId)
+    {
+        var indexesToDelete = _context.Releves.Where(i => i.AppareilId == compteurId).ToList();
+
+        // Supprime chaque index associé au compteur.
+        foreach (var index in indexesToDelete)
+        {
+            _context.Releves.Remove(index);
+        }
+
+        await _context.SaveChangesAsync();
+    }
 }

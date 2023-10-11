@@ -20,5 +20,6 @@ public interface IPatrimoineRepository
     /// <param name="compteurId"></param>
     /// <returns></returns>
     Task<bool> CompteurExistsAsync(Guid compteurId);
-    
+    Task CreateCompteurAsync(string numeroSerie);
+    Task DeleteCompteurAsync(Guid compteurId);
 }

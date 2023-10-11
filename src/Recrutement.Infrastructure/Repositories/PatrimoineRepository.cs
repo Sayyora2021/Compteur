@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Recrutement.Domain.Patrimoine;
 using Recrutement.Domain.Patrimoine.Models;
+using Recrutement.Infrastructure.Repositories.Entities;
 
 namespace Recrutement.Infrastructure.Repositories;
 
@@ -44,4 +45,29 @@ public class PatrimoineRepository : IPatrimoineRepository
         var compteur = await _dataContext.Appareils.FindAsync(compteurId);
         return compteur != null;
     }
+
+    public async Task CreateCompteurAsync(string numeroSerie)
+    {
+        var appareil = new Appareil
+        {
+            NumeroSerie = numeroSerie,
+            Type= "Compteur"
+        };
+
+        _dataContext.Appareils.Add(appareil);
+        await _dataContext.SaveChangesAsync();
+
+    }
+
+    public async Task DeleteCompteurAsync(Guid appareilId)
+    {
+        var appareil = await _dataContext.Appareils.FindAsync(appareilId);
+        if (appareil != null)
+        {
+            _dataContext.Appareils.Remove(appareil);
+            await _dataContext.SaveChangesAsync();
+        }
+
+    }
+
 }

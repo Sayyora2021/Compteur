@@ -17,4 +17,9 @@ public class Compteur
         NumeroSerie = numeroSerie;
         DateDePose = dateDePose;
     }
+
+    public Compteur(string numeroSerie)
+    {
+        NumeroSerie = numeroSerie;
+    }
 }
