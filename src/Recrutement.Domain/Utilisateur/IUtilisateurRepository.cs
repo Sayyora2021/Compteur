@@ -1,5 +1,4 @@
-﻿using Recrutement.Domain.Utilisateur;
-using Recrutement.Domain.Utilisateur.Models;
+﻿using Recrutement.Domain.Utilisateur.Models;
 
 namespace Recrutement.Domain.Utilisateur
 {
@@ -7,9 +6,10 @@ namespace Recrutement.Domain.Utilisateur
     {
 
         IEnumerable<Models.Utilisateur>GetAll();
-        //Task GetAll(IUtilisateurRepository);
-        
-       Task  CreateUtilisateurAsync(UtilisateurAdd utilisateurAdd);
+        Task <Models.Utilisateur> GetByNameAsync(string name);
+
+
+        Task CreateUtilisateurAsync(UtilisateurAdd utilisateurAdd);
 
        
 

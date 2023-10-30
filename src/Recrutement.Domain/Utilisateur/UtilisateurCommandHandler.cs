@@ -1,9 +1,5 @@
-﻿using Recrutement.Domain.Utilisateur.Commands;
-using MediatR;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
+using Recrutement.Domain.Utilisateur.Commands;
 using Recrutement.Domain.Utilisateur.Models;
 
 namespace Recrutement.Domain.Utilisateur

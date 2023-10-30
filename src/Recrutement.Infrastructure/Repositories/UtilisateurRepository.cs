@@ -35,4 +35,30 @@ public class UtilisateurRepository: IUtilisateurRepository
         await _dataContext.AddAsync(utilisateurData);
         await _dataContext.SaveChangesAsync();
     }
+
+
+    public async Task<Utilisateur> GetByNameAsync(string name)
+    {
+        try
+        {
+            var user = await _dataContext.Utilisateurs
+                .FirstOrDefaultAsync(u => u.Nom == name);
+
+            if (user != null)
+            {
+                return new Utilisateur(user.Id, user.Nom, user.Prenom);
+            }
+            else
+            {
+                return null; 
+            }
+        }
+        catch (Exception ex)
+        {
+            // Gére une exceptions 
+            throw ex;
+        }
+    }
+
+    
 }

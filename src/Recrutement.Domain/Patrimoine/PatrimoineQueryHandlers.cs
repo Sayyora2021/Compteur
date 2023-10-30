@@ -18,4 +18,6 @@ public class PatrimoineQueryHandlers :
     {
         return await _patrimoineRepository.GetAllCompteursAsync();
     }
+
+   
 }

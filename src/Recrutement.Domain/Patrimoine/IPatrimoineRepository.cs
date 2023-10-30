@@ -12,7 +12,7 @@ public interface IPatrimoineRepository
     Task<IList<Compteur>> GetAllCompteursAsync();
 
 
-    //Task<IList<Compteur>> GetCompteurByIdAsync(Guid id);
+   // Task GetCompteurByIdAsync(Guid compteurId);
 
     /// <summary>
     /// Vérification de l'existance d'un compteur

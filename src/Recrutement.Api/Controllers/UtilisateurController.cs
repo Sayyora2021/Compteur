@@ -6,6 +6,7 @@ using System.Net;
 using Recrutement.Infrastructure.Repositories;
 using Recrutement.Domain.Utilisateur.Queries;
 using Recrutement.Domain.Utilisateur.Commands;
+using Recrutement.Api.Response;
 
 namespace Recrutement.Api.Controllers;
 
@@ -29,26 +30,7 @@ public class UtilisateurController : ControllerBase
         var utilisateurs =await _mediator.Send(new GetAllQuery());
         return Ok(utilisateurs);
     }
-    //[HttpGet]
-    //[ProducesResponseType((int)HttpStatusCode.OK)]
-    //[Route("search/{nom}")]
-    //public async Task<ActionResult<List<Utilisateur>>> GetByNom([FromRoute] string nom)
-    //{
-        //var utilisateursResult = new List<Utilisateur>();
-        //foreach (var utilisateur in _utilisateurRepository.GetAll())
-        //{
-        //    if (utilisateur.Nom.Contains(nom))
-        //    {
-        //        utilisateursResult.Add(utilisateur);
-        //    }
-        //}
-
-        //return utilisateursResult;
-        
-   // }
-
-
-
+   
     [HttpPost]
     [ProducesResponseType((int)HttpStatusCode.OK)]
     [Route("create")]
@@ -70,6 +52,15 @@ public class UtilisateurController : ControllerBase
             // En cas d'échec
             return BadRequest("Échec de la création de l'utilisateur : " + ex.Message);
         }
+
+    }
+    [HttpGet]
+    [ProducesResponseType((int)HttpStatusCode.OK)]
+    [Route("search/{nom}")]
+    public async Task<ActionResult<Utilisateur>> GetByName([FromRoute] string nom)
+    {
+        var utilisateurResult = await _mediator.Send(new GetByNameQuery (nom));
+        return utilisateurResult;
 
     }
 }

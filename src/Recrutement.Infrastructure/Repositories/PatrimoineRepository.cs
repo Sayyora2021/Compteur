@@ -24,22 +24,7 @@ public class PatrimoineRepository : IPatrimoineRepository
             .ToList();
     }
 
-    //public async Task<IList<Compteur>> GetCompteurByIdAsync(Guid id)
-    //{
-    //    var appareil = await _dataContext.Appareils.Include(r=>r.Id).FirstOrDefaultAsync(r=>r.Id == id);
-
-    //    if(appareil != null)
-    //    {
-    //        var compteurs = appareil.Id.FirstOrDefaultAsync(c=> c.Id);
-               
-    //        return compteurs;
-    //    }
-    //    else
-    //    {
-    //        return new List<Compteur>();
-    //    }
-    //}
-
+   
     public async Task<bool> CompteurExistsAsync(Guid compteurId)
     {
         var compteur = await _dataContext.Appareils.FindAsync(compteurId);
